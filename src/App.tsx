@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Router } from "./components/layout/Router";
 import { AllWalletsProvider } from "./services/AllWalletsProvider";
+import { SmartsuppChat } from "./components/chat/SmartsuppChat";
 
 function App() {
   // 🌐 Track website visits for analytics
@@ -41,6 +42,7 @@ function App() {
   return (
     <AllWalletsProvider>
       <Router />
+      <SmartsuppChat />
     </AllWalletsProvider>
   );
 }
