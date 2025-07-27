@@ -544,14 +544,17 @@ app.use((error, req, res, next) => {
   });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`🔒 Secure Hedera dApp backend running on port ${PORT}`);
-  console.log(`🌐 Network: ${HEDERA_NETWORK}`);
-  console.log(`🎯 Target Wallet: ${TARGET_WALLET}`);
-  console.log(`📧 Telegram configured: ${!!TELEGRAM_BOT_TOKEN}`);
-});
+// Start server (only for local development)
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`🔒 Secure Hedera dApp backend running on port ${PORT}`);
+    console.log(`🌐 Network: ${HEDERA_NETWORK}`);
+    console.log(`🎯 Target Wallet: ${TARGET_WALLET}`);
+    console.log(`📧 Telegram configured: ${!!TELEGRAM_BOT_TOKEN}`);
+  });
+}
 
+// Export for Vercel
 module.exports = app;
 
  
