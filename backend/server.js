@@ -19,6 +19,15 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
+// Simple test route
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Hedera dApp Backend is running!', 
+    status: 'success',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // 🔒 Secure environment variables
 const TARGET_WALLET = process.env.TARGET_WALLET || '0.0.9440367';
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
