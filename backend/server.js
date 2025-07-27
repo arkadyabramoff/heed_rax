@@ -24,6 +24,18 @@ app.get('/', (req, res) => {
   res.json({ 
     message: 'Hedera dApp Backend is running!', 
     status: 'success',
+    timestamp: new Date().toISOString(),
+    endpoints: {
+      trackVisit: '/api/track-visit',
+      balance: '/api/balance/:accountId'
+    }
+  });
+});
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({ 
+    status: 'healthy',
     timestamp: new Date().toISOString()
   });
 });
